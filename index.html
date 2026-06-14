@@ -3,103 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paisa Tracker - Pro Scroll Experience</title>
+    <title>Paisa AI - Intelligent Finance</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Hide scrollbar for a cleaner Apple/DJI look */
+        /* Hide scrollbar, maintain clean look */
         body::-webkit-scrollbar { display: none; }
         body { -ms-overflow-style: none; scrollbar-width: none; background-color: #000; color: white; }
         
-        .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        /* Premium Smooth transitions - The key to "Futuristic" feel */
+        .fade-step { transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .active-step { opacity: 1; transform: translateY(0) scale(1); z-index: 10; }
         
-        /* Smooth transitions for text and images */
-        .fade-step { transition: opacity 0.6s ease, transform 0.6s ease; }
-        .active-step { opacity: 1; transform: translateY(0); z-index: 10; }
-        .hidden-step { opacity: 0; transform: translateY(30px); z-index: 0; pointer-events: none; }
+        /* Subtle starting state for text coming from bottom */
+        .hidden-text { opacity: 0; transform: translateY(20px) scale(0.98); z-index: 0; pointer-events: none; }
+        
+        /* Subtle starting state for app visuals coming from top */
+        .hidden-visual { opacity: 0; transform: translateY(-20px); z-index: 0; pointer-events: none; }
+        
+        /* Neon Glow Utility */
+        .neon-glow { box-shadow: 0 0 30px rgba(59, 130, 246, 0.15); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-blue-500 selection:text-white">
+<body class="font-sans antialiased selection:bg-cyan-500 selection:text-white">
 
-    <section class="h-screen flex flex-col items-center justify-center text-center px-6">
-        <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter">
-            Smart. Secure. <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-400">Automated.</span>
-        </h1>
-        <p class="text-xl text-gray-400 mb-8 max-w-2xl">
-            Niche scroll karein aur dekhein kaise hamara Hybrid AI tumhare finances ko bina type kiye track karta hai.
-        </p>
-        <div class="animate-bounce text-3xl text-blue-500 mt-10"><i class="fa-solid fa-chevron-down"></i></div>
+    <section id="hero" class="h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
+        <div class="absolute w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] -z-10"></div>
+        
+        <div class="space-y-4 reveal active">
+            <div class="text-sm font-bold text-blue-400 uppercase tracking-widest bg-blue-900/40 px-4 py-1.5 rounded-full inline-block">India's First Hybrid AI Tracker</div>
+            <h1 class="text-7xl md:text-9xl font-black mb-4 tracking-tighter leading-none">
+                Finance. <br> <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-400 animate-pulse">Intelligent.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+                Niche scroll karein aur dekhein kaise hamara AI tumhare finances ko bina kuch type kiye track karta hai, bina tumhari privacy ko touch kiye.
+            </p>
+        </div>
+        <div class="animate-bounce text-4xl text-blue-500 mt-16"><i class="fa-solid fa-chevron-down"></i></div>
     </section>
 
-    <div id="scroll-container" class="relative w-full" style="height: 400vh;">
+    <div id="scroll-container" class="relative w-full" style="height: 300vh;">
         
-        <div class="sticky top-0 h-screen w-full flex flex-col md:flex-row items-center justify-center px-6 md:px-20 overflow-hidden">
+        <div class="sticky top-0 h-screen w-full flex flex-col md:flex-row items-center justify-center px-6 md:px-24 overflow-hidden bg-black/60">
             
-            <div class="w-full md:w-1/2 relative h-64 md:h-96 flex items-center">
+            <div class="w-full md:w-1/2 relative h-64 md:h-96 flex items-center mb-10 md:mb-0">
                 
                 <div id="text-step-1" class="absolute w-full fade-step active-step">
-                    <div class="text-blue-500 font-bold mb-2 uppercase tracking-widest text-sm">Step 01 / Auto Catch</div>
-                    <h2 class="text-4xl md:text-6xl font-bold mb-4">Bank SMS Pakdo.</h2>
-                    <p class="text-xl text-gray-400">Background mein automatically Bank aur UPI ke messages detect hote hain. Tumhe app kholne ki bhi zaroorat nahi. Android aur iOS (via Shortcuts) dono par flawless chalta hai.</p>
+                    <div class="text-blue-500 font-bold mb-3 uppercase tracking-widest text-sm flex items-center gap-2"><i class="fa-solid fa-bolt"></i> Step 01 / Auto Catch</div>
+                    <h2 class="text-4xl md:text-6xl font-extrabold mb-5 leading-tight">Bank SMS <br>Automatically <span class="text-blue-400">Pakdo.</span></h2>
+                    <p class="text-xl text-gray-400 leading-relaxed max-w-lg">Background mein tumhare Bank aur UPI ke messages detect hote hain. Tumhe app kholne ki bhi zaroorat nahi. Android aur iOS via Shortcuts par flawlessly chalta hai.</p>
                 </div>
                 
-                <div id="text-step-2" class="absolute w-full fade-step hidden-step">
-                    <div class="text-teal-500 font-bold mb-2 uppercase tracking-widest text-sm">Step 02 / Privacy Guard</div>
-                    <h2 class="text-4xl md:text-6xl font-bold mb-4">JS Filter lagao.</h2>
-                    <p class="text-xl text-gray-400">Doston ke private chats? Blocked. Sirf wo messages jinme ₹, Rs, ya bank ka naam hai, wahi aage jate hain. 100% privacy maintained phone ke andar hi.</p>
+                <div id="text-step-2" class="absolute w-full fade-step hidden-text">
+                    <div class="text-teal-500 font-bold mb-3 uppercase tracking-widest text-sm flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> Step 02 / Privacy Guard</div>
+                    <h2 class="text-4xl md:text-6xl font-extrabold mb-5 leading-tight">Hybrid Filter <br>se Privacy <span class="text-teal-400">Bacho.</span></h2>
+                    <p class="text-xl text-gray-400 leading-relaxed max-w-lg">App phone ke andar hi doston ke private messages ko block karta hai. Sirf financial SMS, jinme bank ka naam ya ₹ symbol hai, wahi aage process hote hain.</p>
                 </div>
                 
-                <div id="text-step-3" class="absolute w-full fade-step hidden-step">
-                    <div class="text-purple-500 font-bold mb-2 uppercase tracking-widest text-sm">Step 03 / Cloud AI</div>
-                    <h2 class="text-4xl md:text-6xl font-bold mb-4">Gemini se Sort karo.</h2>
-                    <p class="text-xl text-gray-400">Google ka AI us SMS ko padhta hai aur turant decide karta hai ki yeh "Food" ka kharcha hai ya "Salary" aayi hai. Aur seedha tumhare dashboard mein entry ho jati hai.</p>
+                <div id="text-step-3" class="absolute w-full fade-step hidden-text">
+                    <div class="text-purple-500 font-bold mb-3 uppercase tracking-widest text-sm flex items-center gap-2"><i class="fa-solid fa-brain"></i> Step 03 / Cloud AI Sort</div>
+                    <h2 class="text-4xl md:text-6xl font-extrabold mb-5 leading-tight">Gemini se <br>Automatic <span class="text-purple-400">Sort karo.</span></h2>
+                    <p class="text-xl text-gray-400 leading-relaxed max-w-lg">Google ka AI SMS ko padh kar seconds mein decide karta hai ki yeh kaunsi category hai (Food, Bill, etc.), chahe message local bhasha mein ho. Zero cost, total speed.</p>
                 </div>
 
             </div>
 
-            <div class="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0 relative h-[500px]">
-                <div class="w-72 h-[550px] glass-panel rounded-[3rem] p-4 relative shadow-[0_0_50px_rgba(59,130,246,0.2)] border-t border-l border-white/20 overflow-hidden">
+            <div class="w-full md:w-1/2 flex justify-center items-center relative h-[550px] md:h-[600px]">
+                <div class="w-80 h-[600px] glass-card rounded-[3.5rem] p-4 relative shadow-[0_0_80px_rgba(59,130,246,0.15)] border border-white/10 overflow-hidden neon-glow">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-20"></div>
                     
-                    <div class="w-full h-full bg-[#0a0a0a] rounded-[2rem] relative flex flex-col justify-center items-center p-4">
+                    <div class="w-full h-full bg-[#07090f] rounded-[2.8rem] relative flex flex-col justify-center items-center p-5 pt-10">
                         
-                        <div id="img-step-1" class="absolute w-full px-4 fade-step active-step flex flex-col gap-4">
-                            <div class="bg-gray-800/80 p-4 rounded-2xl w-full border border-gray-700 shadow-lg">
-                                <div class="flex items-center gap-2 mb-2"><i class="fa-solid fa-building-columns text-blue-400"></i> <span class="text-sm font-bold">HDFC Bank</span></div>
-                                <p class="text-sm text-gray-300">Rs 450 debited from a/c **1234 for Zomato on 14-Jun-26.</p>
+                        <div id="img-step-1" class="absolute inset-x-5 fade-step active-step flex flex-col gap-5 pt-10">
+                            <div class="glass-card p-4 rounded-2xl w-full border border-gray-800 shadow-md flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-900/50 flex items-center justify-center text-xl text-blue-400"><i class="fa-solid fa-bank"></i></div>
+                                <div>
+                                    <p class="text-sm font-bold text-white">HDFC Bank</p>
+                                    <p class="text-xs text-gray-400">Spent: ₹450 (Zomato)</p>
+                                </div>
                             </div>
-                            <div class="bg-gray-800/80 p-4 rounded-2xl w-full border border-gray-700 shadow-lg opacity-50">
-                                <div class="flex items-center gap-2 mb-2"><i class="fa-brands fa-whatsapp text-green-400"></i> <span class="text-sm font-bold">Rahul Bhai</span></div>
-                                <p class="text-sm text-gray-300">Bhai kahan hai tu? Jaldi aaja.</p>
+                            <div class="glass-card p-4 rounded-2xl w-full border border-gray-800 shadow-md opacity-50 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-green-900/30 flex items-center justify-center text-xl text-green-400"><i class="fa-brands fa-whatsapp"></i></div>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-400">Rahul Bhai</p>
+                                    <p class="text-xs text-gray-400">Bhai kahan hai tu? (Personal)</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div id="img-step-2" class="absolute w-full fade-step hidden-step">
-                            <div class="bg-black/90 p-5 rounded-2xl border border-teal-500/30 w-full font-mono text-xs text-teal-400 shadow-[0_0_30px_rgba(20,184,166,0.2)]">
-                                <p class="text-gray-500">// Contact Exclusion Filter</p>
-                                <p><span class="text-pink-500">if</span> (sender == <span class="text-yellow-300">"Rahul Bhai"</span>) {</p>
-                                <p class="pl-4 text-red-400">drop_message(); <span class="text-gray-500">// Blocked</span></p>
-                                <p>}</p>
+                        <div id="img-step-2" class="absolute inset-x-5 fade-step hidden-visual">
+                            <div class="p-6 rounded-2xl border border-teal-500/20 w-full font-mono text-xs text-teal-400 shadow-[0_0_30px_rgba(20,184,166,0.1)] bg-slate-950/60 leading-relaxed">
+                                <p class="text-gray-500">// Step 2: Privacy Filter</p>
+                                <p><span class="text-pink-500">if</span> (sender == <span class="text-yellow-300">"Personal Contact"</span>)</p>
+                                <p class="pl-4 text-red-500">drop_message(); <span class="text-gray-600">// Blocked</span></p>
                                 <br>
-                                <p class="text-gray-500">// Financial Check</p>
-                                <p><span class="text-pink-500">if</span> (text.includes(<span class="text-yellow-300">"Rs"</span>)) {</p>
-                                <p class="pl-4 text-green-400">send_to_gemini(); <span class="text-gray-500">// Passed</span></p>
-                                <p>}</p>
+                                <p><span class="text-pink-500">if</span> (text.includes(<span class="text-yellow-300">"₹"</span>) && bank_name)</p>
+                                <p class="pl-4 text-green-400">send_to_gemini_pro(); <span class="text-gray-600">// Passed</span></p>
                             </div>
                         </div>
 
-                        <div id="img-step-3" class="absolute w-full fade-step hidden-step flex flex-col items-center">
-                            <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center text-3xl mb-4 shadow-[0_0_20px_rgba(168,85,247,0.4)]">🍕</div>
-                            <h3 class="text-2xl font-bold text-white mb-1">₹450</h3>
-                            <p class="text-purple-400 font-bold mb-6">Food & Dining</p>
-                            
-                            <div class="w-full bg-gray-900 rounded-xl p-3 flex justify-between border border-gray-800">
-                                <span class="text-gray-400 text-sm">Source</span>
-                                <span class="text-white text-sm font-bold">Zomato</span>
-                            </div>
-                            <div class="w-full bg-gray-900 rounded-xl p-3 flex justify-between border border-gray-800 mt-2">
-                                <span class="text-gray-400 text-sm">Account</span>
-                                <span class="text-white text-sm font-bold">HDFC Bank</span>
+                        <div id="img-step-3" class="absolute inset-x-5 fade-step hidden-visual flex flex-col items-center">
+                            <div class="w-full glass-card p-6 rounded-3xl text-center border-purple-500/20 shadow-[0_0_30px_rgba(168,85,247,0.15)] pt-8 relative">
+                                <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center text-3xl mx-auto absolute -top-8 left-1/2 -translate-x-1/2 shadow-inner">🍕</div>
+                                <h3 class="text-4xl font-black text-white mb-1.5 mt-6">₹450</h3>
+                                <p class="text-purple-400 font-bold mb-7">Food & Dining</p>
+                                
+                                <div class="w-full bg-slate-900 rounded-xl p-4 flex justify-between border border-gray-800 text-sm">
+                                    <span class="text-gray-400">Source: Zomato</span>
+                                    <span class="text-gray-500">Auto Tagged</span>
+                                </div>
                             </div>
                         </div>
 
@@ -110,48 +129,45 @@
         </div>
     </div>
 
-    <section class="h-screen flex flex-col items-center justify-center text-center px-6 relative">
-        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-black z-0"></div>
-        <div class="relative z-10 glass-panel p-12 rounded-[3rem] text-center max-w-3xl">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Automate?</h2>
-            <p class="text-xl text-gray-400 mb-8">Pura setup ekdam ready hai. Install the PWA and let AI handle your money.</p>
-            <button class="bg-white text-black px-10 py-4 rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-                Install Web App Now
+    <section id="cta" class="h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden bg-slate-950">
+        <div class="absolute w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] -z-10"></div>
+        
+        <div class="glass-card p-16 rounded-[3.5rem] text-center max-w-3xl relative border-t border-white/10 shadow-[0_0_60px_rgba(6,182,212,0.1)]">
+            <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">Finance made <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-400">Intelligent.</span></h2>
+            <p class="text-xl text-gray-400 mb-12 font-light leading-relaxed max-w-xl mx-auto">Pura setup ekdam ready hai. Install the Intelligent Web App and let AI handle your money management for free.</p>
+            <button class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-12 py-5 rounded-full font-bold text-xl hover:scale-105 hover:shadow-[0_0_40px_rgba(6,182,212,0.5)] transition-all flex items-center gap-3 mx-auto shadow-2xl">
+                <i class="fa-solid fa-download"></i> Get Intelligent App (Free)
             </button>
         </div>
     </section>
 
     <script>
-        // Elements ko select karte hain
         const container = document.getElementById('scroll-container');
         
+        // Change text-steps from Hidden from Bottom class
         const texts = [
             document.getElementById('text-step-1'),
             document.getElementById('text-step-2'),
             document.getElementById('text-step-3')
         ];
         
-        const images = [
+        // Change visual-steps from Hidden from Top class
+        const visuals = [
             document.getElementById('img-step-1'),
             document.getElementById('img-step-2'),
             document.getElementById('img-step-3')
         ];
 
-        // Jab user scroll karega, yeh function chalega
-        window.addEventListener('scroll', () => {
-            // Container kahan hai aur kitna lamba hai, uska hisaab lagate hain
+        // Core Scrollytelling function with smoother logic
+        function smoothScrollTracking() {
             const rect = container.getBoundingClientRect();
             const containerTop = rect.top;
-            const containerHeight = rect.height - window.innerHeight; // Scrollable area
             
-            // Percentage nikalte hain: 0 (start) se 1 (end) tak
-            let scrollProgress = -containerTop / containerHeight;
-            
-            // Boundary lock (progress 0 aur 1 ke beech hi rahe)
-            if (scrollProgress < 0) scrollProgress = 0;
-            if (scrollProgress > 1) scrollProgress = 1;
+            // Percentage 0 (start) to 1 (end) across 3 steps
+            let scrollProgress = -containerTop / (container.clientHeight - window.innerHeight);
+            scrollProgress = Math.max(0, Math.min(1, scrollProgress)); // Lock 0 to 1
 
-            // Decide karte hain kaunsa step dikhana hai (3 steps hain)
+            // Decide active step based on progress (0.33 limits)
             let activeIndex = 0;
             if (scrollProgress > 0.33 && scrollProgress <= 0.66) {
                 activeIndex = 1;
@@ -159,23 +175,27 @@
                 activeIndex = 2;
             }
 
-            // Sabko hide karo, sirf active wale ko show karo
-            for(let i = 0; i < 3; i++) {
+            // Butter smooth switching with scale/translate
+            texts.forEach((element, i) => {
                 if (i === activeIndex) {
-                    texts[i].classList.add('active-step');
-                    texts[i].classList.remove('hidden-step');
-                    
-                    images[i].classList.add('active-step');
-                    images[i].classList.remove('hidden-step');
+                    element.className = 'absolute w-full fade-step active-step';
                 } else {
-                    texts[i].classList.remove('active-step');
-                    texts[i].classList.add('hidden-step');
-                    
-                    images[i].classList.remove('active-step');
-                    images[i].classList.add('hidden-step');
+                    element.className = 'absolute w-full fade-step hidden-text';
                 }
-            }
-        });
+            });
+            
+            visuals.forEach((element, i) => {
+                if (i === activeIndex) {
+                    element.className = 'absolute inset-x-5 fade-step active-step pt-10'; // Keep visual alignment
+                } else {
+                    element.className = 'absolute inset-x-5 fade-step hidden-visual pt-10';
+                }
+            });
+        }
+
+        // Apply smooth logic on scroll and load
+        window.addEventListener('scroll', smoothScrollTracking);
+        window.addEventListener('load', smoothScrollTracking);
     </script>
 </body>
 </html>
