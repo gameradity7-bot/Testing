@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paisa Tracker - Premium AI Finance</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotateX(10deg) rotateY(-10deg)' },
+                            '50%': { transform: 'translateY(-20px) rotateX(15deg) rotateY(-5deg)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(6, 182, 212, 0.2)' },
+                            '100%': { boxShadow: '0 0 60px rgba(59, 130, 246, 0.6)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom 3D Perspective Container */
+        .perspective-1000 { perspective: 1000px; }
+        .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .hide-scroll::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-[#0f172a] text-white font-sans overflow-x-hidden hide-scroll">
+
+    <div id="landing-page" class="w-full">
+        
+        <nav class="fixed top-0 w-full glass-panel z-50 px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+                PaisaTracker
+            </div>
+            <button onclick="scrollToInstall()" class="text-sm font-bold bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition">
+                Get App
+            </button>
+        </nav>
+
+        <main class="min-h-screen flex flex-col lg:flex-row items-center justify-center px-6 pt-24 relative overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/30 rounded-full blur-[120px] -z-10"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px] -z-10"></div>
+
+            <div class="lg:w-1/2 text-center lg:text-left z-10 mb-16 lg:mb-0">
+                <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
+                    Tumhara Paisa.<br>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600">AI Ka Dimag.</span>
+                </h1>
+                <p class="text-lg text-gray-400 mb-8 max-w-lg mx-auto lg:mx-0">
+                    Bina kuch type kiye apne kharche track karo. Bank SMS automatically padho, Cloud AI se sort karo, aur 100% privacy maintain rakho.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" id="install-section">
+                    <button id="install-btn" class="bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-4 rounded-2xl font-bold text-lg animate-glow hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-2xl">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Install Web App
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 perspective-1000 z-10 flex justify-center">
+                <div class="w-72 h-[500px] glass-panel rounded-[3rem] p-6 flex flex-col animate-float shadow-2xl relative border-t border-l border-white/30">
+                    <div class="w-24 h-6 bg-black absolute top-0 left-1/2 -translate-x-1/2 rounded-b-xl"></div>
+                    <div class="mt-8">
+                        <p class="text-gray-400 text-sm">Total Balance</p>
+                        <h2 class="text-4xl font-bold mb-6">₹1,24,500</h2>
+                        
+                        <div class="space-y-4">
+                            <div class="glass-panel p-4 rounded-2xl flex justify-between items-center">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-400">🍕</div>
+                                    <div>
+                                        <p class="font-bold text-sm">Zomato</p>
+                                        <p class="text-xs text-gray-400">Expense • AI Tagged</p>
+                                    </div>
+                                </div>
+                                <p class="text-red-400 font-bold">-₹450</p>
+                            </div>
+                            <div class="glass-panel p-4 rounded-2xl flex justify-between items-center">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">💼</div>
+                                    <div>
+                                        <p class="font-bold text-sm">Salary</p>
+                                        <p class="text-xs text-gray-400">Income • Auto</p>
+                                    </div>
+                                </div>
+                                <p class="text-green-400 font-bold">+₹85,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section class="py-20 px-6 max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16">Ek App, Saare Features 🔥</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-transform">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-xl font-bold mb-2">Cloud AI Processing</h3>
+                    <p class="text-gray-400 text-sm">Gemini Pro API aapke SMS padh kar exact category sort karta hai, bina phone ki battery khaye.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-transform">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="text-xl font-bold mb-2">100% Privacy Guard</h3>
+                    <p class="text-gray-400 text-sm">Personal chats ko ignore karta hai. Sirf Bank SMS filter hokar server par jate hain.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-transform">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-2">iOS Shortcuts Ready</h3>
+                    <p class="text-gray-400 text-sm">Apple iPhone users ke liye background automation support via Apple Shortcuts.</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="ios-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex-col items-center justify-end pb-10 px-4">
+            <div class="glass-panel w-full max-w-md rounded-3xl p-6 text-center animate-[bounce_1s_ease-in-out]">
+                <h3 class="text-2xl font-bold mb-2">Install on iPhone</h3>
+                <p class="text-gray-400 mb-6">Niche diye gaye Share icon <span class="text-white font-bold">[ ↗ ]</span> par tap karein aur <br><span class="text-white font-bold font-mono bg-white/10 px-2 py-1 rounded">Add to Home Screen</span> select karein.</p>
+                <button onclick="closeModal()" class="bg-gray-800 w-full py-3 rounded-xl font-bold">Got it!</button>
+                
+                <div class="text-4xl mt-4 animate-bounce">👇</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="app-dashboard" class="hidden min-h-screen p-4 bg-gray-950">
+        <h2 class="text-2xl font-bold mt-10 text-center">Welcome to App Dashboard!</h2>
+        <p class="text-center text-gray-400 mt-2">Pura app yahin load hoga.</p>
+    </div>
+
+    <script>
+        function scrollToInstall() {
+            document.getElementById('install-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const installBtn = document.getElementById('install-btn');
+        const iosModal = document.getElementById('ios-modal');
+        const landingPage = document.getElementById('landing-page');
+        const appDashboard = document.getElementById('app-dashboard');
+
+        // Detect device and handle install logic
+        installBtn.addEventListener('click', () => {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            
+            if (isIOS) {
+                // Show iOS specific instruction
+                iosModal.classList.remove('hidden');
+                iosModal.classList.add('flex');
+            } else {
+                // For Android or Web, act as if it installed and show dashboard for now
+                alert("Android: Standard Web App Install Prompt will appear here.");
+                showApp();
+            }
+        });
+
+        function closeModal() {
+            iosModal.classList.add('hidden');
+            iosModal.classList.remove('flex');
+            showApp(); // Simulate app opening after install
+        }
+
+        function showApp() {
+            landingPage.classList.add('hidden');
+            appDashboard.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
